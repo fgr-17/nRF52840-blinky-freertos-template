@@ -155,7 +155,7 @@ include $(TEMPLATE_PATH)/Makefile.common
 
 $(foreach target, $(TARGETS), $(call define_target, $(target)))
 
-.PHONY: flash erase
+.PHONY: flash erase doc
 
 # Flash the program
 flash: default
@@ -165,6 +165,9 @@ flash: default
 
 erase:
 	nrfjprog -f nrf52 --eraseall
+
+doc:
+	doxygen
 
 SDK_CONFIG_FILE := $(SRC_DIR)/config/sdk_config.h
 CMSIS_CONFIG_TOOL := $(NORDIC_SDK_PATH)/external_tools/cmsisconfig/CMSIS_Configuration_Wizard.jar
