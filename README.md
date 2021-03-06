@@ -1,6 +1,6 @@
 # blinky_freertos
 
-Firmware repo for nRF52840-DK using freeRTOS and arm gcc builder
+Firmware repo for nRF52840-DK using freeRTOS and arm gcc builder, based on the Nordic example.
 
 ### author: **fede** *(rouxfederico@gmail.com)*
 
@@ -47,7 +47,7 @@ The following tools are necessary:
 
 5. Java:
 
-    Java is used to generate the sdk_config.h file using the sdk_config target on the Makefile. It can be installed typing:
+    Java is used to generate the sdk_config.h file using the sdk_config target on the Makefile. If this file is not modified, then Java is not necessary at all. It can be installed typing:
 
         sudo apt install default-jre
 
@@ -66,6 +66,13 @@ After that, the makefile has the following targets:
 - make erase: erase the target flash
 
 - make sdk_config: opens a GUI to generate ./src/config/sdk_config.h
+
+## Documentation 
+
+To generate all the docs, it's necessary to install Doxygen and GraphViz
+
+	sudo apt-get install doxygen-gui
+	sudo apt-get install graphviz
 
  ## License
 
