@@ -48,10 +48,12 @@ SRC_FILES += \
   $(NORDIC_SDK_PATH)/components/libraries/bsp/bsp.c \
   $(NORDIC_SDK_PATH)/modules/nrfx/mdk/system_nrf52840.c \
   $(SRC_DIR)/main.cpp \
+  $(SRC_DIR)/led/led.cpp \
 
 # Include folders common to all targets
 INC_FOLDERS += \
   $(SRC_DIR)/config \
+  $(SRC_DIR)/led \
   $(NORDIC_SDK_PATH)/components \
   $(NORDIC_SDK_PATH)/modules/nrfx/mdk \
   $(NORDIC_SDK_PATH)/components/libraries/timer \
