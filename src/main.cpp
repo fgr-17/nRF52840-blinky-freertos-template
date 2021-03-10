@@ -51,6 +51,10 @@
 #include <stdbool.h>
 #include <stdint.h>
 
+#ifdef __cplusplus
+extern "C" {
+#endif 
+
 #include "FreeRTOS.h"
 #include "task.h"
 #include "timers.h"
@@ -59,6 +63,11 @@
 #include "nrf_drv_clock.h"
 #include "sdk_errors.h"
 #include "app_error.h"
+
+#ifdef __cplusplus
+}
+#endif 
+
 
 #if LEDS_NUMBER <= 2
 #error "Board is not equipped with enough amount of LEDs"

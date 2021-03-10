@@ -46,8 +46,8 @@ SRC_FILES += \
   $(NORDIC_SDK_PATH)/modules/nrfx/drivers/src/nrfx_clock.c \
   $(NORDIC_SDK_PATH)/modules/nrfx/drivers/src/nrfx_gpiote.c \
   $(NORDIC_SDK_PATH)/components/libraries/bsp/bsp.c \
-  $(SRC_DIR)/main.c \
   $(NORDIC_SDK_PATH)/modules/nrfx/mdk/system_nrf52840.c \
+  $(SRC_DIR)/main.cpp \
 
 # Include folders common to all targets
 INC_FOLDERS += \
