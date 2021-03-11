@@ -53,7 +53,6 @@ SRC_FILES += \
 # Include folders common to all targets
 INC_FOLDERS += \
   $(SRC_DIR)/config \
-  $(SRC_DIR)/led \
   $(NORDIC_SDK_PATH)/components \
   $(NORDIC_SDK_PATH)/modules/nrfx/mdk \
   $(NORDIC_SDK_PATH)/components/libraries/timer \
@@ -81,6 +80,7 @@ INC_FOLDERS += \
   $(NORDIC_SDK_PATH)/modules/nrfx/drivers/include \
   $(NORDIC_SDK_PATH)/external/fprintf \
   $(NORDIC_SDK_PATH)/components/libraries/log/src \
+  $(SRC_DIR)/led \
 
 # Libraries common to all targets
 LIB_FILES += \
