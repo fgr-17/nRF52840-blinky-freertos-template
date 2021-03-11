@@ -1,3 +1,12 @@
+/**
+ * 
+ * @file led.hpp
+ * 
+ * @brief led management class
+ * 
+ * @author fede (rouxfederico@gmail.com)
+ * 
+ */
 
 #ifndef __LED_HPP
     

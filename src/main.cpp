@@ -38,7 +38,7 @@
  *
  */
 /** @file
- * @defgroup blinky_example_main main.c
+ * @defgroup blinky_example_main main.cpp
  * @{
  * @ingroup blinky_example_freertos
  *
