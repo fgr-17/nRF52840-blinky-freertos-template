@@ -38,7 +38,7 @@
  *
  */
 /** @file
- * @defgroup blinky_example_main main.c
+ * @defgroup blinky_example_main main.cpp
  * @{
  * @ingroup blinky_example_freertos
  *
@@ -51,6 +51,10 @@
 #include <stdbool.h>
 #include <stdint.h>
 
+#ifdef __cplusplus
+extern "C" {
+#endif 
+
 #include "FreeRTOS.h"
 #include "task.h"
 #include "timers.h"
@@ -60,46 +64,20 @@
 #include "sdk_errors.h"
 #include "app_error.h"
 
+#ifdef __cplusplus
+}
+#endif 
+
+
+#include "led/led.hpp"
+
 #if LEDS_NUMBER <= 2
 #error "Board is not equipped with enough amount of LEDs"
 #endif
 
-#define TASK_DELAY        200           /**< Task delay. Delays a LED0 task for 200 ms */
-#define TIMER_PERIOD      1000          /**< Timer period. LED1 timer will expire after 1000 ms */
-
-TaskHandle_t  led_toggle_task_handle;   /**< Reference to LED0 toggling FreeRTOS task. */
-TimerHandle_t led_toggle_timer_handle;  /**< Reference to LED1 toggling FreeRTOS timer. */
-
-/**@brief LED0 task entry function.
- *
- * @param[in] pvParameter   Pointer that will be used as the parameter for the task.
- */
-static void led_toggle_task_function (void * pvParameter)
-{
-    UNUSED_PARAMETER(pvParameter);
-    while (true)
-    {
-        bsp_board_led_invert(BSP_BOARD_LED_0);
-
-        /* Delay a task for a given number of ticks */
-        vTaskDelay(TASK_DELAY);
-
-        /* Tasks must be implemented to never return... */
-    }
-}
-
-/**@brief The function to call when the LED1 FreeRTOS timer expires.
- *
- * @param[in] pvParameter   Pointer that will be used as the parameter for the timer.
- */
-static void led_toggle_timer_callback (void * pvParameter)
-{
-    UNUSED_PARAMETER(pvParameter);
-    bsp_board_led_invert(BSP_BOARD_LED_1);
-}
-
 int main(void)
 {
+
     ret_code_t err_code;
 
     /* Initialize clock driver for better time accuracy in FREERTOS */
@@ -110,11 +88,14 @@ int main(void)
     bsp_board_init(BSP_INIT_LEDS);
 
     /* Create task for LED0 blinking with priority set to 2 */
-    UNUSED_VARIABLE(xTaskCreate(led_toggle_task_function, "LED0", configMINIMAL_STACK_SIZE + 200, NULL, 2, &led_toggle_task_handle));
+    UNUSED_VARIABLE(xTaskCreate(led::toggle_task_function, "LED0", 
+        configMINIMAL_STACK_SIZE + 200, NULL, 2, &led::toggle_task_handle));
 
     /* Start timer for LED1 blinking */
-    led_toggle_timer_handle = xTimerCreate( "LED1", TIMER_PERIOD, pdTRUE, NULL, led_toggle_timer_callback);
-    UNUSED_VARIABLE(xTimerStart(led_toggle_timer_handle, 0));
+    led::toggle_timer_handle = xTimerCreate( "LED1", led::timer_period, pdTRUE, NULL, 
+                                        led::toggle_timer_callback);
+
+    UNUSED_VARIABLE(xTimerStart(led::toggle_timer_handle, 0));
 
     /* Activate deep sleep mode */
     SCB->SCR |= SCB_SCR_SLEEPDEEP_Msk;
