@@ -1,12 +1,12 @@
-PROJECT_NAME     := blinky_FreeRTOS_pca10056
+PROJECT_NAME     := saadc_pca10056
 TARGETS          := nrf52840_xxaa
-OUTPUT_DIRECTORY := bin
+OUTPUT_DIRECTORY := _build
 
-PROJ_DIR := .
-SRC_DIR := $(PROJ_DIR)/src
+NORDIC_SDK_PATH := ../../../../../..
+PROJ_DIR := ../../..
 
 $(OUTPUT_DIRECTORY)/nrf52840_xxaa.out: \
-  LINKER_SCRIPT  := $(SRC_DIR)/blinky_FreeRTOS_gcc_nrf52.ld
+  LINKER_SCRIPT  := saadc_gcc_nrf52.ld
 
 # Source files common to all targets
 SRC_FILES += \
@@ -18,22 +18,9 @@ SRC_FILES += \
   $(NORDIC_SDK_PATH)/components/libraries/log/src/nrf_log_frontend.c \
   $(NORDIC_SDK_PATH)/components/libraries/log/src/nrf_log_str_formatter.c \
   $(NORDIC_SDK_PATH)/components/boards/boards.c \
-  $(NORDIC_SDK_PATH)/external/freertos/source/croutine.c \
-  $(NORDIC_SDK_PATH)/external/freertos/source/event_groups.c \
-  $(NORDIC_SDK_PATH)/external/freertos/source/portable/MemMang/heap_1.c \
-  $(NORDIC_SDK_PATH)/external/freertos/source/list.c \
-  $(NORDIC_SDK_PATH)/external/freertos/portable/GCC/nrf52/port.c \
-  $(NORDIC_SDK_PATH)/external/freertos/portable/CMSIS/nrf52/port_cmsis.c \
-  $(NORDIC_SDK_PATH)/external/freertos/portable/CMSIS/nrf52/port_cmsis_systick.c \
-  $(NORDIC_SDK_PATH)/external/freertos/source/queue.c \
-  $(NORDIC_SDK_PATH)/external/freertos/source/stream_buffer.c \
-  $(NORDIC_SDK_PATH)/external/freertos/source/tasks.c \
-  $(NORDIC_SDK_PATH)/external/freertos/source/timers.c \
-  $(NORDIC_SDK_PATH)/components/libraries/button/app_button.c \
   $(NORDIC_SDK_PATH)/components/libraries/util/app_error.c \
   $(NORDIC_SDK_PATH)/components/libraries/util/app_error_handler_gcc.c \
   $(NORDIC_SDK_PATH)/components/libraries/util/app_error_weak.c \
-  $(NORDIC_SDK_PATH)/components/libraries/timer/app_timer_freertos.c \
   $(NORDIC_SDK_PATH)/components/libraries/util/app_util_platform.c \
   $(NORDIC_SDK_PATH)/components/libraries/util/nrf_assert.c \
   $(NORDIC_SDK_PATH)/components/libraries/atomic/nrf_atomic.c \
@@ -47,13 +34,7 @@ SRC_FILES += \
   $(NORDIC_SDK_PATH)/components/libraries/strerror/nrf_strerror.c \
   $(NORDIC_SDK_PATH)/integration/nrfx/legacy/nrf_drv_ppi.c \
   $(NORDIC_SDK_PATH)/integration/nrfx/legacy/nrf_drv_uart.c \
-  $(NORDIC_SDK_PATH)/integration/nrfx/legacy/nrf_drv_clock.c \
-  $(NORDIC_SDK_PATH)/components/drivers_nrf/nrf_soc_nosd/nrf_nvic.c \
-  $(NORDIC_SDK_PATH)/components/drivers_nrf/nrf_soc_nosd/nrf_soc.c \
   $(NORDIC_SDK_PATH)/modules/nrfx/soc/nrfx_atomic.c \
-  $(NORDIC_SDK_PATH)/modules/nrfx/drivers/src/nrfx_clock.c \
-  $(NORDIC_SDK_PATH)/modules/nrfx/drivers/src/nrfx_gpiote.c \
-  $(NORDIC_SDK_PATH)/components/libraries/bsp/bsp.c \
   $(NORDIC_SDK_PATH)/modules/nrfx/drivers/src/nrfx_ppi.c \
   $(NORDIC_SDK_PATH)/modules/nrfx/drivers/src/prs/nrfx_prs.c \
   $(NORDIC_SDK_PATH)/modules/nrfx/drivers/src/nrfx_saadc.c \
@@ -65,47 +46,36 @@ SRC_FILES += \
   $(NORDIC_SDK_PATH)/external/segger_rtt/SEGGER_RTT_Syscalls_GCC.c \
   $(NORDIC_SDK_PATH)/external/segger_rtt/SEGGER_RTT_printf.c \
   $(NORDIC_SDK_PATH)/modules/nrfx/mdk/system_nrf52840.c \
-  $(SRC_DIR)/main.cpp \
-  $(SRC_DIR)/led/led.cpp \
 
 # Include folders common to all targets
 INC_FOLDERS += \
-  $(SRC_DIR)/config \
   $(NORDIC_SDK_PATH)/components \
   $(NORDIC_SDK_PATH)/modules/nrfx/mdk \
-  $(NORDIC_SDK_PATH)/components/libraries/timer \
+  $(PROJ_DIR) \
   $(NORDIC_SDK_PATH)/components/libraries/pwr_mgmt \
   $(NORDIC_SDK_PATH)/components/libraries/strerror \
   $(NORDIC_SDK_PATH)/components/toolchain/cmsis/include \
-  $(NORDIC_SDK_PATH)/external/freertos/source/include \
-  $(NORDIC_SDK_PATH)/external/freertos/config \
   $(NORDIC_SDK_PATH)/components/libraries/util \
+  ../config \
   $(NORDIC_SDK_PATH)/components/libraries/balloc \
   $(NORDIC_SDK_PATH)/components/libraries/ringbuf \
   $(NORDIC_SDK_PATH)/modules/nrfx/hal \
   $(NORDIC_SDK_PATH)/components/libraries/bsp \
   $(NORDIC_SDK_PATH)/components/libraries/log \
-  $(NORDIC_SDK_PATH)/components/libraries/button \
   $(NORDIC_SDK_PATH)/modules/nrfx \
   $(NORDIC_SDK_PATH)/components/libraries/experimental_section_vars \
   $(NORDIC_SDK_PATH)/integration/nrfx/legacy \
-  $(NORDIC_SDK_PATH)/external/freertos/portable/CMSIS/nrf52 \
   $(NORDIC_SDK_PATH)/components/libraries/mutex \
   $(NORDIC_SDK_PATH)/components/libraries/delay \
   $(NORDIC_SDK_PATH)/integration/nrfx \
   $(NORDIC_SDK_PATH)/components/drivers_nrf/nrf_soc_nosd \
-  $(NORDIC_SDK_PATH)/components/libraries/atomic \
   $(NORDIC_SDK_PATH)/external/segger_rtt \
-
   $(NORDIC_SDK_PATH)/components/boards \
   $(NORDIC_SDK_PATH)/components/libraries/memobj \
-  $(NORDIC_SDK_PATH)/external/freertos/portable/GCC/nrf52 \
   $(NORDIC_SDK_PATH)/modules/nrfx/drivers/include \
-  $(NORDIC_SDK_PATH)/external/fprintf \
   $(NORDIC_SDK_PATH)/components/libraries/log/src \
   $(NORDIC_SDK_PATH)/external/fprintf \
   $(NORDIC_SDK_PATH)/components/libraries/atomic \
-  $(SRC_DIR)/led \
 
 # Libraries common to all targets
 LIB_FILES += \
@@ -121,7 +91,6 @@ CFLAGS += -DBOARD_PCA10056
 CFLAGS += -DBSP_DEFINES_ONLY
 CFLAGS += -DCONFIG_GPIO_AS_PINRESET
 CFLAGS += -DFLOAT_ABI_HARD
-CFLAGS += -DFREERTOS
 CFLAGS += -DNRF52840_XXAA
 CFLAGS += -mcpu=cortex-m4
 CFLAGS += -mthumb -mabi=aapcs
@@ -142,7 +111,6 @@ ASMFLAGS += -DBOARD_PCA10056
 ASMFLAGS += -DBSP_DEFINES_ONLY
 ASMFLAGS += -DCONFIG_GPIO_AS_PINRESET
 ASMFLAGS += -DFLOAT_ABI_HARD
-ASMFLAGS += -DFREERTOS
 ASMFLAGS += -DNRF52840_XXAA
 
 # Linker flags
@@ -184,7 +152,7 @@ include $(TEMPLATE_PATH)/Makefile.common
 
 $(foreach target, $(TARGETS), $(call define_target, $(target)))
 
-.PHONY: flash erase doc
+.PHONY: flash erase
 
 # Flash the program
 flash: default
@@ -195,10 +163,7 @@ flash: default
 erase:
 	nrfjprog -f nrf52 --eraseall
 
-doc:
-	doxygen
-
-SDK_CONFIG_FILE := $(SRC_DIR)/config/sdk_config.h
+SDK_CONFIG_FILE := ../config/sdk_config.h
 CMSIS_CONFIG_TOOL := $(NORDIC_SDK_PATH)/external_tools/cmsisconfig/CMSIS_Configuration_Wizard.jar
 sdk_config:
 	java -jar $(CMSIS_CONFIG_TOOL) $(SDK_CONFIG_FILE)
