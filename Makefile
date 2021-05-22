@@ -96,7 +96,6 @@ INC_FOLDERS += \
   $(NORDIC_SDK_PATH)/components/drivers_nrf/nrf_soc_nosd \
   $(NORDIC_SDK_PATH)/components/libraries/atomic \
   $(NORDIC_SDK_PATH)/external/segger_rtt \
-
   $(NORDIC_SDK_PATH)/components/boards \
   $(NORDIC_SDK_PATH)/components/libraries/memobj \
   $(NORDIC_SDK_PATH)/external/freertos/portable/GCC/nrf52 \
