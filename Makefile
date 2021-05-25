@@ -17,6 +17,7 @@ SRC_FILES += \
   $(NORDIC_SDK_PATH)/components/libraries/log/src/nrf_log_default_backends.c \
   $(NORDIC_SDK_PATH)/components/libraries/log/src/nrf_log_frontend.c \
   $(NORDIC_SDK_PATH)/components/libraries/log/src/nrf_log_str_formatter.c \
+  $(NORDIC_SDK_PATH)/components/libraries/bsp/bsp.c \
   $(NORDIC_SDK_PATH)/components/boards/boards.c \
   $(NORDIC_SDK_PATH)/external/freertos/source/croutine.c \
   $(NORDIC_SDK_PATH)/external/freertos/source/event_groups.c \
@@ -53,14 +54,12 @@ SRC_FILES += \
   $(NORDIC_SDK_PATH)/modules/nrfx/soc/nrfx_atomic.c \
   $(NORDIC_SDK_PATH)/modules/nrfx/drivers/src/nrfx_clock.c \
   $(NORDIC_SDK_PATH)/modules/nrfx/drivers/src/nrfx_gpiote.c \
-  $(NORDIC_SDK_PATH)/components/libraries/bsp/bsp.c \
   $(NORDIC_SDK_PATH)/modules/nrfx/drivers/src/nrfx_ppi.c \
   $(NORDIC_SDK_PATH)/modules/nrfx/drivers/src/prs/nrfx_prs.c \
   $(NORDIC_SDK_PATH)/modules/nrfx/drivers/src/nrfx_saadc.c \
   $(NORDIC_SDK_PATH)/modules/nrfx/drivers/src/nrfx_timer.c \
   $(NORDIC_SDK_PATH)/modules/nrfx/drivers/src/nrfx_uart.c \
   $(NORDIC_SDK_PATH)/modules/nrfx/drivers/src/nrfx_uarte.c \
-  $(PROJ_DIR)/main.c \
   $(NORDIC_SDK_PATH)/external/segger_rtt/SEGGER_RTT.c \
   $(NORDIC_SDK_PATH)/external/segger_rtt/SEGGER_RTT_Syscalls_GCC.c \
   $(NORDIC_SDK_PATH)/external/segger_rtt/SEGGER_RTT_printf.c \
@@ -117,7 +116,7 @@ OPT = -O3 -g3
 # C flags common to all targets
 CFLAGS += $(OPT)
 CFLAGS += -DBOARD_PCA10056
-CFLAGS += -DBSP_DEFINES_ONLY
+# CFLAGS += -DBSP_DEFINES_ONLY
 CFLAGS += -DCONFIG_GPIO_AS_PINRESET
 CFLAGS += -DFLOAT_ABI_HARD
 CFLAGS += -DFREERTOS
