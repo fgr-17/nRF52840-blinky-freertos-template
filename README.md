@@ -9,13 +9,19 @@ Firmware repo for nRF52840-DK using freeRTOS and arm gcc builder, based on the N
 The project has been developed in Ubuntu 20.02. It should run on any OS, but this was not tested.
 This project uses the gcc arm builder and is not bounded to any IDE. It has been developed under VSC but any code editor can be used.
 
+After downloading the repository, download the submodule:
+
+```git
+git submodule update --init
+```
+
 
 The following tools are necessary:
 
 1. [GNU Arm Embedded Toolchain](https://developer.arm.com/tools-and-software/open-source-software/developer-tools/gnu-toolchain/gnu-rm/downloads):
 
     The project has been developed under the 10.2 2020 q4 version, but any version should be used. 
-    Download and install the complete toolchain. Take note of the installation directory (in my case usr/local/gcc-arm-none-eabi-10-2020-q4-major/bin/). The installation process should add the installation path/bin to the system PATH. If not, add it manually. This can be checked typing in a terminal: **arm-none-eabi-gcc --version**. The following output should be shown:
+    Download and install the complete toolchain. Take note of the installation directory (on Linux it can be something like: usr/local/gcc-arm-none-eabi-10-2020-q4-major/bin/ - on macOS, something like: /Applications/ARM/bin). The installation process should add the installation path/bin to the system PATH. If not, add it manually. This can be checked typing in a terminal: **arm-none-eabi-gcc --version**. The following output should be shown:
 
         arm-none-eabi-gcc (GNU Arm Embedded Toolchain 10-2020-q4-major) 10.2.1 20201103 (release)
         Copyright (C) 2020 Free Software Foundation, Inc.
@@ -53,7 +59,7 @@ The following tools are necessary:
 
 ## Usage
 
-Before compiling the project, is necessary to set the environment variable NORDIC_SDK_PATH to the installation path of the SDK. On linux, it can be added on the ~/.bashrc file. On Windows, it can be done searching for "Environment Variables" on "Start".
+Before compiling the project, is necessary to set the environment variable NORDIC_SDK_PATH to the installation path of the SDK. On linux, it can be added on the ~/.bashrc file. On macOS, .zshrc and .bashrc. On Windows, it can be done searching for "Environment Variables" on "Start".
 
 After that, the makefile has the following targets:
 
