@@ -9,12 +9,11 @@ Firmware repo for nRF52840-DK using freeRTOS and arm gcc builder, based on the N
 The project has been developed in Ubuntu 20.02. It should run on any OS, but this was not tested.
 This project uses the gcc arm builder and is not bounded to any IDE. It has been developed under VSC but any code editor can be used.
 
-After downloading the repository, download the submodule:
+After downloading the repository, download the submodules:
 
 ```git
 git submodule update --init
 ```
-
 
 The following tools are necessary:
 
