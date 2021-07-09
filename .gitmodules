@@ -4,3 +4,9 @@
 [submodule "ext/gen-xfakes"]
 	path = ext/gen-xfakes
 	url = https://github.com/jwgrenning/gen-xfakes.git
+[submodule "ext/gmock-global"]
+	path = ext/gmock-global
+	url = https://github.com/apriorit/gmock-global.git
+[submodule "ext/fff"]
+	path = ext/fff
+	url = https://github.com/meekrosoft/fff.git

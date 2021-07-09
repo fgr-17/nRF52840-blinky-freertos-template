@@ -10,10 +10,10 @@ set(CMAKE_POSITION_INDEPENDENT_CODE ON)
 
 add_subdirectory(ext/googletest)
 
-set(SRC_DIR /src)
+set(SRC_DIR src)
 
 set(INC_DIR 
-    ${CMAKE_CURRENT_SOURCE_DIR}/${SRC_DIR}/config
+    ${CMAKE_SOURCE_DIR}/${SRC_DIR}/config
     $ENV{NORDIC_SDK_PATH}/components
     $ENV{NORDIC_SDK_PATH}/modules/nrfx/mdk
     $ENV{NORDIC_SDK_PATH}/components/libraries/timer
@@ -41,22 +41,22 @@ set(INC_DIR
     $ENV{NORDIC_SDK_PATH}/modules/nrfx/drivers/include 
     $ENV{NORDIC_SDK_PATH}/external/fprintf 
     $ENV{NORDIC_SDK_PATH}/components/libraries/log/src 
-    ${CMAKE_CURRENT_SOURCE_DIR}/${SRC_DIR}/led 
+    ${CMAKE_SOURCE_DIR}/${SRC_DIR}/led 
   )
+
+# message("${INC_DIR}")
+# foreach(dir ${INC_DIR})
+#   message(${dir})
+# endforeach()
 
 include_directories(
   test/doubles
   ${INC_DIR}
 )
 
-# message()
-
-# message(WARNING "----- dirs: ${CMAKE_CURRENT_SOURCE_DIR}")
-
 # processor definition
 add_compile_definitions(NRF52840_XXAA)
 add_compile_definitions(BOARD_PCA10056)
-
 
 set(Sources
     src/led/led.cpp

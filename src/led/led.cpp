@@ -64,7 +64,7 @@ namespace led {
      */
     void toggle_timer_callback (void * pvParameter)
     {
-        UNUSED_PARAMETER(pvParameter);
+        // UNUSED_PARAMETER(pvParameter);
         bsp_board_led_invert(BSP_BOARD_LED_1);
     }
 

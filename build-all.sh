@@ -22,7 +22,8 @@ echo -e '\nBuilding testing suite ...'
 cd ${cwd}
 mkdir -p ${OUTPUT_DIR}
 cd ${OUTPUT_DIR}
-cmake -DCMAKE_CXX_FLAGS="-Wfatal-errors" ../ 2> error_output.txt
+# cmake -DCMAKE_CXX_FLAGS="-Wfatal-errors" ../ 2> error_output.txt
+cmake ../
 make
 
 echo -e '\nRunning tests'
