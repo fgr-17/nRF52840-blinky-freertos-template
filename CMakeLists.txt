@@ -11,6 +11,7 @@ set(CMAKE_POSITION_INDEPENDENT_CODE ON)
 add_subdirectory(ext/googletest)
 
 set(SRC_DIR src)
+set(TEST_DIR test)
 
 set(INC_DIR 
     ${CMAKE_SOURCE_DIR}/${SRC_DIR}/config
@@ -49,8 +50,9 @@ set(INC_DIR
 #   message(${dir})
 # endforeach()
 
+
 include_directories(
-  test/doubles
+  ${CMAKE_SOURCE_DIR}/${TEST_DIR}/doubles
   ${INC_DIR}
 )
 
@@ -59,7 +61,8 @@ add_compile_definitions(NRF52840_XXAA)
 add_compile_definitions(BOARD_PCA10056)
 
 set(Sources
-    src/led/led.cpp
+  ${CMAKE_SOURCE_DIR}/${SRC_DIR}/led/led.cpp
+  ${CMAKE_SOURCE_DIR}/${TEST_DIR}/doubles/bsp.cpp
 )
 
 add_library(${This} STATIC ${Sources})
