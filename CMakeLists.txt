@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.8)
 
-set(This Example)
+set(This test_suite)
 
 project(${This} C CXX)
 
