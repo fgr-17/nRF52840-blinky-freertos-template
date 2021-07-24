@@ -7,7 +7,7 @@ project(${This})
 enable_language(CXX)
 set(CMAKE_CXX_STANDARD 17 CACHE STRING "C++ standard required for build")
 set(CMAKE_CXX_STANDARD_REQUIRED ON CACHE BOOL "is C++ stndard a requirement")
-SET(CMAKE_CXX_EXTENSIONS OFF CACHE BOOL "enable/disable compiler specific extensions")
+set(CMAKE_CXX_EXTENSIONS OFF CACHE BOOL "enable/disable compiler specific extensions")
 set(CMAKE_POSITION_INDEPENDENT_CODE ON)
 
 ### External Libraries ##############
@@ -56,7 +56,7 @@ set(INC_DIR
   )
 
 
-include_directories(
+include_directories(PUBLIC
   ${CMAKE_SOURCE_DIR}/${TEST_DIR}/doubles
   ${INC_DIR}
 )

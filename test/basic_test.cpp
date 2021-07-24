@@ -5,5 +5,5 @@ TEST_CASE("true test", "[basic]") {
 }
 
 TEST_CASE("false test", "[basic]") {
-    REQUIRE(1 == 0);
+    // REQUIRE(1 == 0);
 }

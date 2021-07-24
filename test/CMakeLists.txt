@@ -16,7 +16,8 @@ include_directories(
   
   set(Sources 
     main_test.cpp
-    basic.cpp
+    basic_test.cpp
+    led_test.cpp
     doubles/bsp.c
     doubles/FreeRTOS.c
     ${CMAKE_SOURCE_DIR}/${SRC_DIR}/led/led.cpp
