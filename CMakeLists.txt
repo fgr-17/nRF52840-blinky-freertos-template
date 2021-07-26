@@ -56,7 +56,7 @@ set(INC_DIR
   )
 
 
-include_directories(PUBLIC
+include_directories(
   ${CMAKE_SOURCE_DIR}/${TEST_DIR}/doubles
   ${INC_DIR}
 )

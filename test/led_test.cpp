@@ -1,10 +1,13 @@
 #include <catch.hpp>
+
+#include <FreeRTOS.h>
 #include <led.hpp>
 
 
 TEST_CASE("led test", "[led]") {
 
-    // led::toggle_task_function();
+    void*param;
+    led::toggle_task_function(param);
 
     REQUIRE(1 == 1);
 }

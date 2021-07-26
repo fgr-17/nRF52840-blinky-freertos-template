@@ -1,8 +1,8 @@
 set(TEST_NAME basic_test)
 
-include_directories(
-  ${CMAKE_SOURCE_DIR}/${TEST_DIR}/doubles
-  )
+# include_directories(
+#   ${CMAKE_SOURCE_DIR}/${TEST_DIR}/doubles
+#   )
   
   
   # target_sources(${TEST_NAME}
@@ -20,10 +20,15 @@ include_directories(
     led_test.cpp
     doubles/bsp.c
     doubles/FreeRTOS.c
-    ${CMAKE_SOURCE_DIR}/${SRC_DIR}/led/led.cpp
   )
   
-  add_executable(${TEST_NAME} ${Sources})
+# get_property(dirs DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR} PROPERTY INCLUDE_DIRECTORIES)
+# foreach(dir ${dirs})
+#   message(STATUS "${dir}")
+# endforeach()
+
+
+add_executable(${TEST_NAME} ${Sources})
 
 target_link_libraries(${TEST_NAME}
   PUBLIC

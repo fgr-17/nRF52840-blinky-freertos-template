@@ -8,9 +8,13 @@
  * 
  */
 
+#include <cstddef>
+
 #ifdef __cplusplus
 extern "C" {
 #endif 
+
+#include <stdint.h>
 
 #include "FreeRTOS.h"
 #include "task.h"
