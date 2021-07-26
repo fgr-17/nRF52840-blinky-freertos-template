@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.13)
 
-set(This test_suite)
+set(This source_test)
 project(${This})
 
 ### C++ ############################
@@ -20,6 +20,8 @@ find_package(Catch2 REQUIRED MODULE)
 ENABLE_TESTING()
 include(CTest)
 
+
+### Source and headers #########################
 set(SRC_DIR src)
 set(TEST_DIR test)
 
@@ -71,9 +73,7 @@ set(Sources
 #   ${CMAKE_SOURCE_DIR}/${TEST_DIR}/doubles/bsp.c
 )
 
-
 add_library(${This} STATIC ${Sources})
-
 
 ### Main Body #######################
 add_subdirectory(test)

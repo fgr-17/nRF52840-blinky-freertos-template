@@ -1,4 +1,4 @@
-set(TEST_NAME basic_test)
+set(TEST_NAME test_suite)
 
 # include_directories(
 #   ${CMAKE_SOURCE_DIR}/${TEST_DIR}/doubles
@@ -32,16 +32,15 @@ add_executable(${TEST_NAME} ${Sources})
 
 target_link_libraries(${TEST_NAME}
   PUBLIC
-  # $<TARGET_OBJECTS:helloworld>
   ::Catch2
-  test_suite
+  source_test
   )
   
 
 
-# add_test(
-# NAME
-#   "basic_test"
-# COMMAND
-#   ${TEST_NAME}
-# )
+add_test(
+NAME
+  "${TEST_NAME}"
+COMMAND
+  ${TEST_NAME}
+)

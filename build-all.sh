@@ -1,6 +1,6 @@
 #!/bin/bash
 cwd=$(pwd)
-OUTPUT_DIR=output
+OUTPUT_DIR=build
 SOURCE_DIR=./
 
 if [ $# == 1 ]; then
@@ -27,7 +27,9 @@ make
 
 echo -e '\nRunning tests'
 cd ${cwd}
-./${OUTPUT_DIR}/test/basic_test
+# ./${OUTPUT_DIR}/test/test_suite -s --reporter compact
+./${OUTPUT_DIR}/test/test_suite -s # bdd complete style
+# ./${OUTPUT_DIR}/test/test_suite
 
 
 exit 0

@@ -2,7 +2,7 @@ find_path(Catch2_INCLUDE_DIR
 NAMES
   catch.hpp
 PATHS
-  ${CMAKE_SOURCE_DIR}/ext/Catch2/
+  ${CMAKE_SOURCE_DIR}/lib/Catch2/
 )
 
 set(Catch2_VERSION "2.13")
