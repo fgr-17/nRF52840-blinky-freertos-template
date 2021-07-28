@@ -1,4 +1,5 @@
 #include <catch.hpp>
+#include <fakeit.hpp>
 
 #include <FreeRTOS.h>
 #include <led.hpp>

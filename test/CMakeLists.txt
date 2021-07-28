@@ -1,8 +1,11 @@
 set(TEST_NAME test_suite)
 
-# include_directories(
-#   ${CMAKE_SOURCE_DIR}/${TEST_DIR}/doubles
-#   )
+set(LIB_DIR lib)
+set(FAKEIT_DIR FakeIt)
+
+include_directories(
+  ${CMAKE_SOURCE_DIR}/lib/FakeIt
+)
   
   
   # target_sources(${TEST_NAME}
@@ -22,10 +25,10 @@ set(TEST_NAME test_suite)
     doubles/FreeRTOS.c
   )
   
-# get_property(dirs DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR} PROPERTY INCLUDE_DIRECTORIES)
-# foreach(dir ${dirs})
-#   message(STATUS "${dir}")
-# endforeach()
+get_property(dirs DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR} PROPERTY INCLUDE_DIRECTORIES)
+foreach(dir ${dirs})
+  message(STATUS "${dir}")
+endforeach()
 
 
 add_executable(${TEST_NAME} ${Sources})
