@@ -28,6 +28,9 @@ extern "C" {
 
 class led {
 
+
+public:
+
     led() = delete;
     
     led(int led_id): led_id(led_id) {
@@ -41,11 +44,13 @@ class led {
         if(hw_init)
             bsp_board_led_invert(led_id);
     }
+    
+    static void init_board(void);
+
 
 private:
 
     uint32_t led_id;
-    static void init_board(void);
     static bool hw_init;
 };
 
