@@ -2,7 +2,7 @@
 #include <fakeit.hpp>
 
 #include <FreeRTOS.h>
-#include <led.hpp>
+#include <led_task.hpp>
 
 
 TEST_CASE("led cb test", "[led]") {
@@ -11,7 +11,7 @@ TEST_CASE("led cb test", "[led]") {
 
 
     SECTION("low level toggle called") {
-        led::toggle_timer_callback(param);  
+        led_task::toggle_timer_callback(param);  
     }
 
 
@@ -27,9 +27,9 @@ SCENARIO("Led cb calls toggle low level function", "[vector]") {
         void*param;
 
         WHEN("is called once") {
-            led::toggle_timer_callback(param);  
+            led_task::toggle_timer_callback(param);  
             THEN("low level fc is called") {
-                led::toggle_timer_callback(param);  
+                led_task::toggle_timer_callback(param);  
                 REQUIRE(1 == 1);
             }
         }

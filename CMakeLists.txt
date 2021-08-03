@@ -69,7 +69,7 @@ add_compile_definitions(BOARD_PCA10056)
 
 
 set(Sources
-  ${CMAKE_SOURCE_DIR}/${SRC_DIR}/led/led.cpp
+  ${CMAKE_SOURCE_DIR}/${SRC_DIR}/led/led_task.cpp
 #   ${CMAKE_SOURCE_DIR}/${TEST_DIR}/doubles/bsp.c
 )
 
