@@ -1,11 +1,9 @@
 /**
- * 
  * @file led.cpp
  * 
  * @brief led management class
  * 
  * @author fede (rouxfederico@gmail.com)
- * 
  */
 
 #include <cstddef>

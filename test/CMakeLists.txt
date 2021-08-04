@@ -7,7 +7,6 @@ include_directories(
   ${CMAKE_SOURCE_DIR}/lib/FakeIt
 )
   
-  
   # target_sources(${TEST_NAME}
   #   PRIVATE
   #     main_test.cpp
@@ -17,13 +16,11 @@ include_directories(
   #     ${CMAKE_SOURCE_DIR}/${SRC_DIR}/led/led.cpp
   #   )
   
-  set(Sources 
-    main_test.cpp
-    basic_test.cpp
-    led_test.cpp
-    doubles/bsp.c
-    doubles/FreeRTOS.c
-  )
+set(Sources 
+  main_test.cpp
+  basic_test.cpp
+  led_test.cpp
+)
   
 get_property(dirs DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR} PROPERTY INCLUDE_DIRECTORIES)
 foreach(dir ${dirs})
@@ -38,8 +35,6 @@ target_link_libraries(${TEST_NAME}
   ::Catch2
   source_test
   )
-  
-
 
 add_test(
 NAME
