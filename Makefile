@@ -49,7 +49,6 @@ SRC_FILES += \
   $(NORDIC_SDK_PATH)/modules/nrfx/mdk/system_nrf52840.c \
   $(SRC_DIR)/main.cpp \
   $(SRC_DIR)/led/led_task.cpp \
-  $(SRC_DIR)/led/led.cpp
 
 # Include folders common to all targets
 INC_FOLDERS += \

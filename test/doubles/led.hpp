@@ -33,10 +33,9 @@ public:
     led() = delete;
     
     led(int led_id): led_id(led_id) {}
-    ~led() {}
+    virtual ~led() {}
 
-    void toggle(void) {
-        bsp_board_led_invert(led_id);
+    virtual void toggle(void) {
     }
     
 private:

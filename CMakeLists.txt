@@ -63,14 +63,13 @@ include_directories(
   ${INC_DIR}
 )
 
-# processor definition
+### Processor definition #######################
 add_compile_definitions(NRF52840_XXAA)
 add_compile_definitions(BOARD_PCA10056)
 
 
 set(Sources
   ${CMAKE_SOURCE_DIR}/${SRC_DIR}/led/led_task.cpp
-  ${CMAKE_SOURCE_DIR}/${SRC_DIR}/led/led.cpp
 )
 
 add_library(${This} STATIC ${Sources})

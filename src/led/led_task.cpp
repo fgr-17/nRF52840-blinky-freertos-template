@@ -54,7 +54,6 @@ namespace led_task {
         UNUSED_PARAMETER(pvParameter);
         while (true)
         {
-            // bsp_board_led_invert(BSP_BOARD_LED_0);
             l2.toggle();
             vTaskDelay(task_delay);
         }
@@ -68,7 +67,6 @@ namespace led_task {
     void toggle_timer_callback (void * pvParameter)
     {
         UNUSED_PARAMETER(pvParameter);
-        // bsp_board_led_invert(BSP_BOARD_LED_1);
         l1.toggle();
     }
 
@@ -79,9 +77,10 @@ namespace led_task {
      */
     void init(void) {
         
-        led::init_board();
+        /* todo: move this call one stage down ----- */
+        bsp_board_init(BSP_INIT_LEDS);
 
-          /* Create task for LED0 blinking with priority set to 2 */
+        /* Create task for LED0 blinking with priority set to 2 */
         xTaskCreate(toggle_task_function, "LED0", configMINIMAL_STACK_SIZE + 200, NULL, 2, &toggle_task_handle);
 
         /* Start timer for LED1 blinking */

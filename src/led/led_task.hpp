@@ -8,8 +8,8 @@
  * 
  */
 
-#ifndef __LED_HPP
-#define __LED_HPP
+#ifndef __LED_TASK_HPP
+#define __LED_TASK_HPP
 
 namespace led_task {
 
@@ -25,4 +25,4 @@ extern void toggle_task_function (void * pvParameter);
 
 };
 
-#endif
+#endif // __LED_TASK_HPP

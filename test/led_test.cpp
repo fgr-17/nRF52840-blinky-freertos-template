@@ -11,6 +11,9 @@
 
 #include <FreeRTOS.h>
 #include <led_task.hpp>
+#include <led.hpp>
+
+using namespace fakeit;
 
 TEST_CASE("led cb test", "[led]") {
 
@@ -22,7 +25,23 @@ TEST_CASE("led cb test", "[led]") {
     REQUIRE(1 == 1);
 }
 
-SCENARIO("Led cb calls toggle low level function", "[vector]") {
+TEST_CASE("led mock test", "[led]") {
+
+    Mock<led> mock_led;
+    Fake(Method(mock_led, toggle));
+    void*param;
+
+    led&i = mock_led.get();
+
+    i.toggle();
+
+    led_task::toggle_timer_callback(param);  
+
+    Verify(Method(mock_led, toggle)).AtLeastOnce();
+}
+
+
+SCENARIO("Led cb calls toggle low level function", "[led]") {
     GIVEN("A cb function") {
 
         void*param;
