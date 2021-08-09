@@ -68,12 +68,7 @@ extern "C" {
 }
 #endif 
 
-
-#include "led/led.hpp"
-
-#if LEDS_NUMBER <= 2
-#error "Board is not equipped with enough amount of LEDs"
-#endif
+#include "led/led_task.hpp"
 
 int main(void)
 {
@@ -85,17 +80,8 @@ int main(void)
     APP_ERROR_CHECK(err_code);
 
     /* Configure LED-pins as outputs */
-    bsp_board_init(BSP_INIT_LEDS);
-
-    /* Create task for LED0 blinking with priority set to 2 */
-    UNUSED_VARIABLE(xTaskCreate(led::toggle_task_function, "LED0", 
-        configMINIMAL_STACK_SIZE + 200, NULL, 2, &led::toggle_task_handle));
-
-    /* Start timer for LED1 blinking */
-    led::toggle_timer_handle = xTimerCreate( "LED1", led::timer_period, pdTRUE, NULL, 
-                                        led::toggle_timer_callback);
-
-    UNUSED_VARIABLE(xTimerStart(led::toggle_timer_handle, 0));
+    // bsp_board_init(BSP_INIT_LEDS);
+    led_task::init();
 
     /* Activate deep sleep mode */
     SCB->SCR |= SCB_SCR_SLEEPDEEP_Msk;

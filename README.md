@@ -51,6 +51,12 @@ The following tools are necessary:
 
         sudo apt install default-jre
 
+6. CMake:
+
+    CMake is used to compile the testing suite. Please run:
+
+        sudo apt install cmake
+
 ## Usage
 
 Before compiling the project, is necessary to set the environment variable NORDIC_SDK_PATH to the installation path of the SDK. On linux, it can be added on the ~/.bashrc file. On Windows, it can be done searching for "Environment Variables" on "Start".
