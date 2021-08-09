@@ -33,7 +33,7 @@ add_executable(${TEST_NAME} ${Sources})
 target_link_libraries(${TEST_NAME}
   PUBLIC
   ::Catch2
-  source_test
+  # source_test
   )
 
 add_test(
