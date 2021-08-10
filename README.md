@@ -57,6 +57,12 @@ The following tools are necessary:
 
         sudo apt install cmake
 
+7. gcovr:
+
+    Gcovr is used to generate output files containing the coverage report of the test cases
+
+        sudo apt install gcovr
+
 ## Usage
 
 Before compiling the project, is necessary to set the environment variable NORDIC_SDK_PATH to the installation path of the SDK. On linux, it can be added on the ~/.bashrc file. On Windows, it can be done searching for "Environment Variables" on "Start".
