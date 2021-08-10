@@ -2,11 +2,13 @@
 cwd=$(pwd)
 OUTPUT_DIR=build
 SOURCE_DIR=./
+TEST_DIR=./test
 
 if [ $# == 1 ]; then
     if [ $1 == "clean" ]; then
         echo "Deleting output files ..."
         rm -rf ${OUTPUT_DIR}
+        rm *.gcov
         cd ${SOURCE_DIR}
         make clean
         exit 0
@@ -31,5 +33,8 @@ cd ${cwd}
 ./${OUTPUT_DIR}/test/test_suite -s # bdd complete style
 # ./${OUTPUT_DIR}/test/test_suite
 
+echo -e '\nBuilding coverage report output'
+cd ${cwd}
+gcovr -r ./${TEST_DIR} ./${OUTPUT_DIR}/${TEST_DIR}/CMakeFiles/test_suite.dir/ --branches --html --html-details -o ./build/gcovr_output.html
 
 exit 0

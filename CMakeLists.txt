@@ -10,6 +10,11 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON CACHE BOOL "is C++ stndard a requirement")
 set(CMAKE_CXX_EXTENSIONS OFF CACHE BOOL "enable/disable compiler specific extensions")
 set(CMAKE_POSITION_INDEPENDENT_CODE ON)
 
+
+set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -fprofile-arcs -ftest-coverage -fPIC")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fprofile-arcs -ftest-coverage -fPIC")
+
+
 ### External Libraries ##############
 set(FindModuleDir ${PROJECT_SOURCE_DIR}/CMake CACHE STRING "path to directory containing the Find<Module>.cmake modules")
 mark_as_advanced(FindModuleDir)
