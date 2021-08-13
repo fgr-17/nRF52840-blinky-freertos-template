@@ -35,6 +35,7 @@ cd ${cwd}
 
 echo -e '\nBuilding coverage report output'
 cd ${cwd}
-gcovr -r ./${TEST_DIR} ./${OUTPUT_DIR}/${TEST_DIR}/CMakeFiles/test_suite.dir/ --branches --html --html-details -o ./build/gcovr_output.html
-
+COVERAGE_FILE_PATH=./${OUTPUT_DIR}/gcovr_output.html
+gcovr -r ./${TEST_DIR} ./${OUTPUT_DIR}/${TEST_DIR}/CMakeFiles/test_suite.dir/ --branches --html --html-details -o ${COVERAGE_FILE_PATH}
+echo -e "\nCoverage report file created on ${COVERAGE_FILE_PATH}"
 exit 0
