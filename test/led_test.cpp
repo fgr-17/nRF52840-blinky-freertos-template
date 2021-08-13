@@ -19,15 +19,15 @@ led l2(BSP_BOARD_LED_1);
 
 using namespace fakeit;
 
-// TEST_CASE("led cb test", "[led]") {
+TEST_CASE("led cb test", "[led]") {
 
-//     void*param;
+    void*param;
 
-//     SECTION("low level toggle called") {
-//         led_task::toggle_timer_callback(param);  
-//     }
-//     REQUIRE(1 == 1);
-// }
+    SECTION("low level toggle called") {
+        led_task::toggle_timer_callback(param);  
+    }
+    REQUIRE(1 == 1);
+}
 
 // TEST_CASE("spy obj", "[led]") {
 
