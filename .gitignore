@@ -3,3 +3,4 @@ doc/**
 .vscode/**
 build/**
 *.gcov
+super-linter.log

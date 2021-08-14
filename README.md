@@ -63,6 +63,14 @@ The following tools are necessary:
 
         sudo apt install gcovr
 
+8. docker:
+
+    Super-linter runs on a docker image. In order to run ./buildall.sh lint, is necessary to install docker.
+    Docker installation is not an easy subject an it depends on which system you are running. Visit this [link] (https://docs.docker.com/engine/install/) to look for the specific tutorial for your system. 
+    You can check if you have docker completely running by executing:
+
+        sudo docker run hello-world
+
 ## Usage
 
 Before compiling the project, is necessary to set the environment variable NORDIC_SDK_PATH to the installation path of the SDK. On linux, it can be added on the ~/.bashrc file. On Windows, it can be done searching for "Environment Variables" on "Start".

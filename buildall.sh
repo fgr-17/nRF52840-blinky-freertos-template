@@ -4,6 +4,7 @@ OUTPUT_DIR=build
 SOURCE_DIR=./
 TEST_DIR=./test
 
+
 if [ $# == 1 ]; then
     if [ $1 == "clean" ]; then
         echo "Deleting output files ..."
@@ -12,7 +13,25 @@ if [ $# == 1 ]; then
         cd ${SOURCE_DIR}
         make clean
         exit 0
+    elif [ $1 == "lint" ]; then 
+        echo "Running super-linter"
+        
+        LOG_FILE="${OUTPUT_DIR}/super-linter.log"
+        sudo docker run \
+            -e RUN_LOCAL=true \
+            -e FILTER_REGEX_EXCLUDE="/tmp/lint/(lib|test)" \
+            -e VALIDATE_BASH=true \
+            -e VALIDATE_CPP=true \
+            -e LOG_FILE=${LOG_FILE} \
+            -e LOG_LEVEL=ERROR \
+            -v $PWD:/tmp/lint \
+            github/super-linter
+
+        echo "Lint log created at ${LOG_FILE}"
+        #  exit
     fi
+
+
 fi
 
 echo -e '\nBuilding target ...'
