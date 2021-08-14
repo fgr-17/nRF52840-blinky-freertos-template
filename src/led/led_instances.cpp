@@ -1,9 +1,9 @@
 /**
- * 
+ *
  * @file led.cpp
- * 
+ *
  * @brief led class instances
- * 
+ *
  * @author fede (rouxfederico@gmail.com)
  */
 

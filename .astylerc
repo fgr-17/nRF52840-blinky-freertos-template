@@ -1,0 +1,8 @@
+--style=stroustrup
+--recursive
+--attach-extern-c
+--indent-classes
+--indent-switches
+--indent-col1-comments
+--break-blocks
+# --suffix=none

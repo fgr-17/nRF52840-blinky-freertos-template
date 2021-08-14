@@ -14,6 +14,10 @@ if [ $# == 1 ]; then
         make clean
         exit 0
     elif [ $1 == "lint" ]; then 
+
+        echo "Running astyle"
+        astyle --project ./src/*.cpp,*.c,*.h
+
         echo "Running super-linter"
         
         LOG_FILE="${OUTPUT_DIR}/super-linter.log"

@@ -53,7 +53,7 @@
 
 #ifdef __cplusplus
 extern "C" {
-#endif 
+#endif
 
 #include "FreeRTOS.h"
 #include "task.h"
@@ -66,7 +66,7 @@ extern "C" {
 
 #ifdef __cplusplus
 }
-#endif 
+#endif
 
 #include "led/led_task.hpp"
 
@@ -89,8 +89,7 @@ int main(void)
     /* Start FreeRTOS scheduler. */
     vTaskStartScheduler();
 
-    while (true)
-    {
+    while (true) {
         /* FreeRTOS should not be here... FreeRTOS goes back to the start of stack
          * in vTaskStartScheduler function. */
     }
